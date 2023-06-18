@@ -252,6 +252,18 @@ io.Reader, so this assertion cannot succeed.
 
 **Enabled by default.**
 
+## **inlinemethod**
+
+check for simple methods that can be inlined
+
+A method consisting of a single statement such as:
+	// todo
+will be removed, and its calls replaced with that single statement:
+	// todo
+
+
+**Enabled by default.**
+
 ## **loopclosure**
 
 check references to loop variables from within nested functions

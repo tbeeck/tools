@@ -56,6 +56,7 @@ import (
 	"golang.org/x/tools/gopls/internal/lsp/analysis/fillreturns"
 	"golang.org/x/tools/gopls/internal/lsp/analysis/fillstruct"
 	"golang.org/x/tools/gopls/internal/lsp/analysis/infertypeargs"
+	"golang.org/x/tools/gopls/internal/lsp/analysis/inlinemethod"
 	"golang.org/x/tools/gopls/internal/lsp/analysis/nonewvars"
 	"golang.org/x/tools/gopls/internal/lsp/analysis/noresultvalues"
 	"golang.org/x/tools/gopls/internal/lsp/analysis/simplifycompositelit"
@@ -1583,6 +1584,7 @@ func defaultAnalyzers() map[string]*Analyzer {
 			Fix:             AddEmbedImport,
 			fixesDiagnostic: fixedByImportingEmbed,
 		},
+		inlinemethod.Analyzer.Name: {Analyzer: inlinemethod.Analyzer, Enabled: true},
 
 		// gofmt -s suite:
 		simplifycompositelit.Analyzer.Name: {
